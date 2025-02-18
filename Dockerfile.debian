@@ -1,6 +1,6 @@
 ARG VERSION=lts
 
-FROM --platform=$BUILDPLATFORM node:$VERSION-bullseye as build
+FROM --platform=$BUILDPLATFORM node:$VERSION as build
 
 ENV PYTHONUNBUFFERED=1
 
@@ -21,7 +21,7 @@ RUN apt-get update -y ; \
     mkdir -p /app ; \
     cp -r bin/ dist/ node_modules/ LICENSE package.json package-lock.json README.md /app/
 
-FROM --platform=$TARGETPLATFORM node:$VERSION-bullseye-slim
+FROM --platform=$TARGETPLATFORM node:$VERSION-slim
 
 LABEL org.opencontainers.image.authors="Soketi <open-source@soketi.app>"
 LABEL org.opencontainers.image.source="https://github.com/soketi/soketi"
