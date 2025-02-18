@@ -97,7 +97,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v5.0.0
         with:
-          images: quay.io/soketi/soketi
+          images: dockerppcn/soketi
           tags: |
             type=ref,event=pr,suffix=-${{ matrix.node }}-distroless
             type=raw,value=${{ github.sha }}-${{ matrix.node }}-distroless
